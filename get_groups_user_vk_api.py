@@ -11,14 +11,17 @@
 import requests
 from pathlib import Path
 import json
-import token
+from tokens import token2
+
+
+
 
 class ScrapGroupsVk:
     params = {
-        'user_id': 139099730, #id user
+        'user_id': 83677700, #id user
         'extended': 1,
-        'v': 5.52,
-        'access_token': token.token,
+        'v': 5.81,
+        'access_token': token2,
     } #параметры для вызова api
 
     def __init__(self, start_url, headers, s_path):
@@ -52,7 +55,7 @@ if __name__ == '__main__':
 
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0'}
     url = 'https://api.vk.com/method/groups.get'
-    p = Path('vk_user_groups')
+    p = Path('./vk_user_groups')
     p.mkdir() #создадим папку
 
     groups_saver = ScrapGroupsVk(url, headers, p) #объект
